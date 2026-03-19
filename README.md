@@ -45,6 +45,8 @@ The notebook expects the SDWPF Dataset (Baidu KDD Cup 2022) to be present in the
 
 `wtbdata_245days.csv`: Historical SCADA data for 134 turbines.
 
+**Note:** If you have Git LFS installed, you can pull the dataset from the directory.
+
 ## System Architecture
 The forecasting pipeline follows an "Agentic" flow:
 
