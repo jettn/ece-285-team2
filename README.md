@@ -1,5 +1,7 @@
 # Wind Power Forecasting Agent (LLM-Based)
-This repository contains an agentic AI system that performs 48-hour wind power forecasting using a combination of historical SCADA data and real-time meteorological forecasts (ERA5). The system utilizes Gemini 3 Flash (or Claude 3) to reason over binned data and provide structured JSON forecasts.
+This repository contains an agentic AI system that performs 48-hour wind power forecasting using a combination of historical SCADA data and real-time meteorological forecasts (ERA5). The system utilizes Gemini 3 Flash (or Claude 3) to reason over binned data and provide structured JSON forecasts. This is located in `presentation.ipynb`.
+
+`experiments.ipynb` contains the experiments conducted to determine which prompt engineering or tokenization methods best improved the accuracy of our model.
 
 ## Git LFS
 To manage these large dataset files efficiently within Git, we will use Git Large File Storage (Git LFS).
@@ -15,7 +17,7 @@ To manage these large dataset files efficiently within Git, we will use Git Larg
 
 - After that, you can commit and push normally
 
-## Quick Start
+## Quick Start (Using presentation.ipynb)
 1. Clone the Repository
 ```
 git clone https://github.com/JettN/ECE-285-Team2.git
