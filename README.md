@@ -26,15 +26,15 @@ cd ECE-285-Team2
 pip install -r requirements.txt
 ```
 3. Setup API Keys
+
 The notebook requires an API key for the LLM provider.
 
-Gemini: Get a key from Google AI Studio.
+**Gemini**: Get a key from Google AI Studio.
 
-Claude: Get a key from Anthropic Console.
+**Claude**: Get a key from Anthropic Console.
 
 In the "Load LLM Client" cell of the notebook, set your provider and key:
 
-Python
 ```
 PROVIDER = "gemini" # or "claude"
 GEMINI_API_KEY = os.environ["GOOGLE_API_KEY"] #or
