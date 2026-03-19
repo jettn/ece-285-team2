@@ -65,7 +65,7 @@ The forecasting pipeline follows an "Agentic" flow:
 6. Evaluation: Calculates RMSE/MAE and plots results against ground truth.
 
 ## Usage
-1. Open presentation.ipynb in Jupyter or VS Code.
+1. Open `presentation.ipynb` in Jupyter or VS Code.
 
 2. Run the Helper Functions cells to initialize the binning and weather tools.
 
