@@ -73,7 +73,7 @@ The forecasting pipeline follows an "Agentic" flow:
 
 4. Adjust the Turbine ID and Data_Start_Day in the final cell.
 
-5. Execute the call_llm_with_forecast function to generate the prediction.
+5. Execute the `call_llm_with_forecast` function to generate the prediction.
 
 ## Limitations & Notes
 API Limits: The Gemini free tier is limited to 20 requests per day.
