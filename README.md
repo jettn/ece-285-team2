@@ -1,5 +1,7 @@
 # Wind Power Forecasting Agent (LLM-Based)
-This repository contains an agentic AI system that performs 48-hour wind power forecasting using a combination of historical SCADA data and real-time meteorological forecasts (ERA5). The system utilizes Gemini 3 Flash (or Claude 3) to reason over binned data and provide structured JSON forecasts.
+This repository contains an agentic AI system that performs 48-hour wind power forecasting using a combination of historical SCADA data and real-time meteorological forecasts (ERA5). The system utilizes Gemini 3 Flash (or Claude 3) to reason over binned data and provide structured JSON forecasts. This is located in `presentation.ipynb`.
+
+`experiments.ipynb` contains the experiments conducted to determine which prompt engineering or tokenization methods best improved the accuracy of our model.
 
 ## Git LFS
 To manage these large dataset files efficiently within Git, we will use Git Large File Storage (Git LFS).
@@ -15,7 +17,7 @@ To manage these large dataset files efficiently within Git, we will use Git Larg
 
 - After that, you can commit and push normally
 
-## Quick Start
+## Quick Start (Using presentation.ipynb)
 1. Clone the Repository
 ```
 git clone https://github.com/JettN/ECE-285-Team2.git
@@ -26,15 +28,15 @@ cd ECE-285-Team2
 pip install -r requirements.txt
 ```
 3. Setup API Keys
+
 The notebook requires an API key for the LLM provider.
 
-Gemini: Get a key from Google AI Studio.
+**Gemini**: Get a key from Google AI Studio.
 
-Claude: Get a key from Anthropic Console.
+**Claude**: Get a key from Anthropic Console.
 
 In the "Load LLM Client" cell of the notebook, set your provider and key:
 
-Python
 ```
 PROVIDER = "gemini" # or "claude"
 GEMINI_API_KEY = os.environ["GOOGLE_API_KEY"] #or
@@ -45,29 +47,33 @@ The notebook expects the SDWPF Dataset (Baidu KDD Cup 2022) to be present in the
 
 `wtbdata_245days.csv`: Historical SCADA data for 134 turbines.
 
+**Note:** If you have Git LFS installed, you can pull the dataset from the directory.
+
 ## System Architecture
 The forecasting pipeline follows an "Agentic" flow:
 
-Data Retrieval: Loads 14 days of historical SCADA data.
+1. Data Retrieval: Loads 14 days of historical SCADA data.
 
-Preprocessing: Performs 16-level equal-width binning on wind speed and power to manage context window efficiency.
+2. Preprocessing: Performs 16-level equal-width binning on wind speed and power to manage context window efficiency.
 
-Tool Use: Fetches 48-hour ERA5 weather forecasts (100m wind speed) via the Open-Meteo API.
+3. Tool Use: Fetches 48-hour ERA5 weather forecasts (100m wind speed) via the Open-Meteo API.
 
-LLM Reasoning: Passes the binned history and weather forecast to the LLM.
+4. LLM Reasoning: Passes the binned history and weather forecast to the LLM.
 
-Verification: Validates the output for JSON structure and ensures a 288-step forecast (10-minute resolution).
+5. Verification: Validates the output for JSON structure and ensures a 288-step forecast (10-minute resolution).
 
-Evaluation: Calculates RMSE/MAE and plots results against ground truth.
+6. Evaluation: Calculates RMSE/MAE and plots results against ground truth.
 
 ## Usage
-Open presentation.ipynb in Jupyter or VS Code.
+1. Open `presentation.ipynb` in Jupyter or VS Code.
 
-Run the Helper Functions cells to initialize the binning and weather tools.
+2. Run the Helper Functions cells to initialize the binning and weather tools.
 
-Adjust the Turbine ID and Data_Start_Day in the final cell.
+3. Scroll down to the "LLM API Call with Forecast added" section
 
-Execute the call_llm_with_forecast function to generate the prediction.
+4. Adjust the Turbine ID and Data_Start_Day in the final cell.
+
+5. Execute the `call_llm_with_forecast` function to generate the prediction.
 
 ## Limitations & Notes
 API Limits: The Gemini free tier is limited to 20 requests per day.
