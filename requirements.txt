@@ -1,0 +1,16 @@
+# Data and Math
+pandas
+numpy
+scikit-learn
+
+# Visualization
+matplotlib
+
+# LLM APIs
+google-generativeai
+anthropic
+
+# Weather Forecast Tools
+openmeteo-requests
+requests-cache
+retry-requests
